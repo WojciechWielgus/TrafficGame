@@ -4,18 +4,42 @@ using UnityEngine;
 
 public class RepeatRoad : MonoBehaviour
 {
-    Vector2 offset;
+    float offset;
+    float tempOffset;
+
+
+    public GameObject BackgroundPrefab;
+    Vector3 BackgroundCreateCoortinates = new Vector3(0, -0.1f, 200);
+    private GameObject Background;
+    private int backgroundCount = 1;
+    
+
     void Start()
     {
+        Background = Instantiate(BackgroundPrefab, new Vector3(0, -0.1f, 200), BackgroundPrefab.transform.rotation);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        offset = PlayerControl.DISTANCE * 0.001f; 
+        GetComponent<Renderer>().material.mainTextureOffset = new Vector2(0, offset);
         
-        offset = new Vector2(0, PlayerControl.DISTANCE / 1000);
-        GetComponent<Renderer>().material.mainTextureOffset = offset;
+        
+        
 
-       
+        
+        //Background.transform.position -= new Vector3(0, 0, PlayerControl.SPEED * Time.deltaTime * 0.45f);
+        Background.transform.position -= new Vector3(0, 0, (offset - tempOffset) * 1000);
+        if (Background.transform.position.z < -100 && backgroundCount < 2)
+        {
+            Background.transform.position += new Vector3(0, 0, 300);
+        }
+        
+
+
+        //Debug.Log(PlayerControl.DISTANCE * 0.001f);
+        Debug.Log(PlayerControl.SPEED);
+        Debug.Log("tempOffset " + ((offset-tempOffset)*1000));
+        tempOffset = offset;
     }
 }
