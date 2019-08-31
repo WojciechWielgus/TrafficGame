@@ -18,6 +18,8 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        textSpeed.text = System.Math.Round(PlayerControl.SPEED * 15, 2) + " km/h";
+        if(PlayerControl.DISTANCE < 10000) textDistance.text = System.Math.Round(PlayerControl.DISTANCE / 10, 0) + " m";
+        else textDistance.text = System.Math.Round(PlayerControl.DISTANCE / 10000, 2) + " km";
     }
 }

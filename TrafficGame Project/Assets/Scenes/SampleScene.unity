@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 45014759}
   - component: {fileID: 45014758}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702363041e612f44bab9efd7280ac13b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textSpeed: {fileID: 0}
-  textDistance: {fileID: 0}
+  textSpeed: {fileID: 1509875597}
+  textDistance: {fileID: 1240798948}
 --- !u!114 &45014759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -723,6 +723,7 @@ MonoBehaviour:
   tiltAngle: 5
   tiltSmooth: 20
   acceleration: 0.01
+  brakeSpeed: 10
 --- !u!1 &2146991121
 GameObject:
   m_ObjectHideFlags: 0

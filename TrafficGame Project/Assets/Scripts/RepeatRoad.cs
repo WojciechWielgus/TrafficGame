@@ -13,7 +13,9 @@ public class RepeatRoad : MonoBehaviour
     void Update()
     {
         
-        offset = new Vector2(0, Time.time * PlayerControl.SPEED);
+        offset = new Vector2(0, PlayerControl.DISTANCE / 1000);
         GetComponent<Renderer>().material.mainTextureOffset = offset;
+
+       
     }
 }
