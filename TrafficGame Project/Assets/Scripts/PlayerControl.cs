@@ -38,6 +38,7 @@ public class PlayerControl : MonoBehaviour
 
         //DISTANCE += SPEED * Time.deltaTime;
         DISTANCE += SPEED;
+
     }
 
     float Acceleration(float speed)

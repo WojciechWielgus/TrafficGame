@@ -6,28 +6,36 @@ public class Background : MonoBehaviour
 {
 
     public GameObject background;
-    private int backgroundCount = 1;
-    private 
-   
+    GameObject tempBackground;
+    Transform landscapeTransform;
+    private int backgroundCount = 1;   
 
     // Start is called before the first frame update
     void Start()
     {
+        landscapeTransform = background.transform.Find("Landscape").transform;
+        backgroundCount = 1;
         background = Instantiate(background, new Vector3(0, 0, 0), background.transform.rotation);
+         
     }
 
     // Update is called once per frame
     void Update()
     {
 
-
-        background.transform.position -= new Vector3(0, 0, PlayerControl.SPEED);
-        if (background.transform.position.z < -200)
+        if (backgroundCount < 2)
         {
-
-            background.transform.position += new Vector3(0, 0, 200);
+            tempBackground = Instantiate(background, new Vector3(0, -0.1f,background.transform.position.z + landscapeTransform.lossyScale.y), background.transform.rotation);
+            backgroundCount++;
         }
-        if()
-
+        background.transform.position -= new Vector3(0, 0, PlayerControl.SPEED);
+        tempBackground.transform.position -= new Vector3(0, 0, PlayerControl.SPEED);
+        tempBackground.name = "tempBackground";
+        if (background.transform.position.z < -landscapeTransform.lossyScale.y)
+        {
+            Destroy(background);
+            background = tempBackground;
+            backgroundCount -= 1 ;
+        }
     }
 }
