@@ -24,17 +24,19 @@ public class SpawnEnemy : MonoBehaviour
 
             if (Random.Range(0, 1000) % 13 == 0 && EnemyCount < maxEnemyCount && enemySpawnTime <= 0)
             {
-                Instantiate(enemyPrefab, new Vector3(lines[Random.Range(0, 3)], 0.3f, GetComponent<Transform>().position.z), Quaternion.identity);
+            //Instantiate(enemyPrefab, new Vector3(lines[Random.Range(0, 3)], 0.3f, GetComponent<Transform>().position.z), Quaternion.identity);
+                var e1 = Enem;
                 EnemyCount++;
                 enemySpawnTime = enemySpawnDelay;
+                
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
-                //
+                
             }
-        
 
+            //Debug.Log(enemyList.Count);
 
-
+        enemyList.RemoveAll(x => x == null);
     }
 }
