@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RepeatRoad : MonoBehaviour
 {
+    /*
     float offset;
     float tempOffset;
 
@@ -42,4 +43,5 @@ public class RepeatRoad : MonoBehaviour
         Debug.Log("tempOffset " + ((offset-tempOffset)*1000));
         tempOffset = offset;
     }
+    */
 }
